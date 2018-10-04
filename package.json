@@ -1,0 +1,19 @@
+{
+  "name": "genetic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "say_my_name.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "genetic_algo"
+  },
+  "author": "andreea96",
+  "license": "ISC",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "sort-object-properties": "^0.3.3"
+  }
+}
