@@ -5,7 +5,7 @@ var desiredName = desiredValue.n;
 var a  = 97;
 var b = 123;
 var individLength = desiredValue.n.length;
-
+let NUMBER_OF_CHILDREN = 3;
 
 var initialPopulation = [
    [97,110,100, 99,100,100,123],
@@ -13,6 +13,8 @@ var initialPopulation = [
    [120,115,114,114,101,101,97],
 ];//setup(10);
 console.log(initialPopulation);
+
+
 var found = false;
 
 while(!found) {
@@ -35,10 +37,52 @@ while(!found) {
     console.log(parents);
     initialPopulation = function crossover(parents) {
        var childrenPopulation = [];
-       
-    }();
+       for(var i=0;i<NUMBER_OF_CHILDREN;i++)
+       {
+           console.log(i);
+            childrenPopulation[i] = getChild(parents);
+       }
+       console.log("children population: ");
+       console.log(childrenPopulation);
+       return childrenPopulation;
+    }(parents);
+    // initialPopulation.forEach(function(individ){
+    //   var name = implode("", String.fromCharCode(individ));
+    //   console.log(name);
+    // })
+    console.log(initialPopulation);
+     console.log(initialPopulation);
+    found=checkIfNameWasFound();
+}
 
-    found=true;
+function checkIfNameWasFound() {
+    initialPopulation.forEach(function (name) {
+        if(JSON.stringify(name) === JSON.stringify(initialPopulation)) {
+            return true;
+        }
+    });
+
+    return false;
+}
+function getChild(parents) {
+    var crossOverPoint = getRandomInt(1,desiredName.length);
+    var i=0;
+    console.log("Crossover point "+crossOverPoint);
+    var child = [];
+    do{
+        child[i] = initialPopulation[parents[0].individKey][i];
+        i++;
+    }while(i!=crossOverPoint);
+    do{
+        child[i] = initialPopulation[parents[1].individKey][i];
+        i++;
+    }while(i!=desiredName.length)
+    return child;
+}
+
+
+function getRandomInt(min,max) {
+    return parseInt(Math.random()*(max-min)+min);
 }
 
 
